@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "f918cae6-5faf-465c-b6fc-6f6878295554",
+		"name": "Boo.world APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2652201"
+	},
+	"item": [
+		{
+			"name": "Create User Profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"ketan saresa\",\n    \"description\" : \"hey there this is a profile account\",\n    \"mbti\" : \"ISFJ\",\n    \"enneagram\": \"9w3\",\n    \"variant\": \"sp/so\",\n    \"tritype\": 725,\n    \"socionics\": \"SEE\",\n    \"sloan\": \"RCOEN\",\n    \"psyche\": \"FEVL\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000",
+				"description": "| **Request Type** | POST |\n| --- | --- |\n| **Endpoint** | [http://localhost:3000](http://localhost:3000) |\n| **Description** | Create a New Profile |\n| **Request Body** | JSON |\n| **Required Field** | name |\n| **Optional Fields** | description, mbti, enneagram, variant, tritype, socionics, sloan, psyche |"
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Profile By User Slug",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/ketan-saresa"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"votes\" : [\n      {\"category\" : \"MBTI\", \"value\" : \"MKGL\"}  \n    ],\n    \"title\" : \"both comment new \",\n    \"description\" : \"Comment Description\",\n    \"userId\" : \"652ac1e8c70310e24a21fd7e\",\n    \"ownerId\" : \"652ac1efc70310e24a21fd80\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/comments",
+				"description": "| **API Name** | Create a Comment |\n| --- | --- |\n| **Description** | Create a new comment. |\n| **Request Type** | POST |\n| **Endpoint** | `http://localhost:3000/comments` |\n| **Request Body** | JSON |\n| **Required Fields** | userId, ownerId |\n| **Optional Fields** | votes (array of objects), title, description |\n\n**Notes : Either votes or title must exists to add a comment**"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comment by User id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/comments/652ac1e8c70310e24a21fd7e?sortBy=best&filterBy=MBTI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments",
+						"652ac1e8c70310e24a21fd7e"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "best"
+						},
+						{
+							"key": "filterBy",
+							"value": "MBTI"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like / Unlike Comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"commentId\" : \"652ac21ac70310e24a21fd86\",\n    \"like\" : true\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/comments/like",
+				"description": "| **API Name** | Like/Unlike Comment |\n| --- | --- |\n| **Description** | Like or Unlike a comment. |\n| **Request Type** | PUT |\n| **Endpoint** | `http://localhost:3000/comments/like` |\n| **Request Body** | JSON |\n| **Required Fields** | commentId, like (Boolean) |"
+			},
+			"response": []
+		}
+	]
+}
