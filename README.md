@@ -6,7 +6,8 @@ It also has test cases written with jest.
 ## Prerequisites
 
 Before you get started, ensure you have the following prerequisites:
-Node.js, MongoDB
+Install Node.js version 18.x 
+Install MongoDB
 
 ## Getting Started
 
@@ -17,4 +18,5 @@ Follow these steps to set up and test the Boo World API:
 4. Start Server by `npm start`
 
 ## Postman collection
-You will find postman collection json file in this repository import it to Postman to test endpoints
+You will find postman collection json file in this repository.
+Import collection to Postman and call endpoints. Check postman documentation for details.
